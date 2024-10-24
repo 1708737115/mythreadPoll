@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/fengxu/thread/mythreadPoll/build",
+  "command": "/usr/bin/g++ -Dini_EXPORTS -I/home/fengxu/thread/mythreadPoll/include -g -fPIC   -Wall -g -std=gnu++20 -o CMakeFiles/ini.dir/src/utils/ini.cpp.o -c /home/fengxu/thread/mythreadPoll/src/utils/ini.cpp",
+  "file": "/home/fengxu/thread/mythreadPoll/src/utils/ini.cpp"
+},
+{
+  "directory": "/home/fengxu/thread/mythreadPoll/build",
+  "command": "/usr/bin/g++ -Dthreadpool_EXPORTS -I/home/fengxu/thread/mythreadPoll/include -g -fPIC   -Wall -g -std=gnu++20 -o CMakeFiles/threadpool.dir/src/thread/threadPool.cpp.o -c /home/fengxu/thread/mythreadPoll/src/thread/threadPool.cpp",
+  "file": "/home/fengxu/thread/mythreadPoll/src/thread/threadPool.cpp"
+},
+{
+  "directory": "/home/fengxu/thread/mythreadPoll/build",
+  "command": "/usr/bin/g++ -Dthreadpool_EXPORTS -I/home/fengxu/thread/mythreadPoll/include -g -fPIC   -Wall -g -std=gnu++20 -o CMakeFiles/threadpool.dir/src/thread/workThread.cpp.o -c /home/fengxu/thread/mythreadPoll/src/thread/workThread.cpp",
+  "file": "/home/fengxu/thread/mythreadPoll/src/thread/workThread.cpp"
+},
+{
+  "directory": "/home/fengxu/thread/mythreadPoll/build",
+  "command": "/usr/bin/g++  -I/home/fengxu/thread/mythreadPoll/include -g   -Wall -g -std=gnu++20 -o CMakeFiles/test.dir/test/initest.cpp.o -c /home/fengxu/thread/mythreadPoll/test/initest.cpp",
+  "file": "/home/fengxu/thread/mythreadPoll/test/initest.cpp"
+},
+{
+  "directory": "/home/fengxu/thread/mythreadPoll/build",
+  "command": "/usr/bin/g++  -I/home/fengxu/thread/mythreadPoll/include -g   -Wall -g -std=gnu++20 -o CMakeFiles/thread_test.dir/test/threadtest.cpp.o -c /home/fengxu/thread/mythreadPoll/test/threadtest.cpp",
+  "file": "/home/fengxu/thread/mythreadPoll/test/threadtest.cpp"
+}
+]

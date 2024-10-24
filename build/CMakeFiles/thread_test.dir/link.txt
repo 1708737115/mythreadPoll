@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/thread_test.dir/test/threadtest.cpp.o -o ../bin/thread_test  -Wl,-rpath,/home/fengxu/thread/mythreadPoll/lib ../lib/libini.so ../lib/libthreadpool.so 

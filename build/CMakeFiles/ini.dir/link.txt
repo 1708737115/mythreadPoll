@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC -shared -Wl,-soname,libini.so -o ../lib/libini.so CMakeFiles/ini.dir/src/utils/ini.cpp.o 

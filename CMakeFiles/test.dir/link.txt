@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test.dir/test/initest.cpp.o -o bin/test  -Wl,-rpath,/home/fengxu/thread/mythreadPoll/lib lib/libini.so 
