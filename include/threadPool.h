@@ -96,10 +96,6 @@ namespace my_thread_poll
     以便在线程池中通过在工作线程中可以用统一的格式（直接用 () 进行调用）对任
     何形式的任务进行调用执行
     4.将std::packaged_task对象添加到任务队列中，并返回一个std::future对象,该对象可以用于获取任务函数的返回值
-
-    备注：
-    当我们传入task,工作线程调用线程就是(*task)(),我们也可以选择lambda表达式,传入[task]() { (*task)(); }
-    这样我们就可以使用task()直接调用任务函数了
     */
     template <typename Func, typename... Args>
     auto ThreadPool::submit(Func &&f, Args &&...args) -> std::future<decltype(f(args...))>

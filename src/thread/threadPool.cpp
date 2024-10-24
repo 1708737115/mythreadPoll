@@ -85,6 +85,7 @@ namespace my_thread_poll
         {
             task_queue_cv_empty.wait(lock);  //在任务队列不为空前阻塞当前线程，将更多的cpu资源分配给任务队列中任务
         }
+        terminate_with_status_lock();
     }
 
     void ThreadPool::terminate_with_status_lock()
