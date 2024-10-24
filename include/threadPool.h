@@ -60,7 +60,7 @@ namespace my_thread_poll
         void terminate_with_status_lock();                        // 终止线程池
         void wait_with_status_lock();                             // 等待所有任务执行完毕
     public:
-        ThreadPool(std::size_t max_task_count,std::size_t inital_thread_count=0); // 构造函数
+        ThreadPool(std::size_t inital_thread_count,std::size_t max_task_count=0); // 构造函数
         ~ThreadPool();                                                               // 析构函数
         template <typename Func, typename... Args>
         auto submit(Func &&f, Args &&...args) -> std::future<decltype(f(args...))>; // 提交任务,实现对线程任务的异步提交

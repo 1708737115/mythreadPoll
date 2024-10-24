@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cassert>
 #include "threadPool.h"
+#include "ini.h"
 
+using namespace utils;
 // Test function
 int add(int a, int b) {
     return a + b;
@@ -13,43 +15,27 @@ void throw_exception() {
 }
 
 int main() {
-    // Create a thread pool object
-    my_thread_poll::ThreadPool pool(10);
-
-    // Define the task to be executed by the thread pool
-    auto task = []() {
-        // Perform some computation or task here
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    };
-
-    // Start the timer
-    auto start = std::chrono::high_resolution_clock::now();
-
-    // Submit the task to the thread pool multiple times
-    for (int i = 0; i < 1000; i++) {
-        pool.submit(task);
+    IniFile ini;
+    if(ini.load("/home/fengxu/thread/mythreadPoll/config/config.ini")==false)
+    {
+        perror("load failed");
     }
 
-    // Wait for all tasks to complete
-    pool.wait();
+    int inital_thread_count = ini.get("thread_pool","inital_thread_count");
+    int max_task_count = ini.get("thread_pool","max_task_count");
 
-    // Stop the timer
-    auto end = std::chrono::high_resolution_clock::now();
+    std::cout<<"inital_thread_count:"<<inital_thread_count<<std::endl;
 
-    // Calculate the elapsed time
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    // 创建线程池
+    my_thread_poll::ThreadPool pool(inital_thread_count,max_task_count);
+    // 添加任务
+    auto future=pool.submit(add,1,2);
+    std::cout<<future.get()<<std::endl;
+    //动态调整线程数量与最大任务数量
+    pool.set_max_task_count(10);
+    pool.add_thread(2);
+    std::cout<<pool.get_thread_count()<<std::endl;
+    pool.remove_thread(2);
+    std::cout<<pool.get_thread_count()<<std::endl;
 
-    // Print the performance result
-    std::cout << "Elapsed time: " << duration << " milliseconds" << std::endl;
-
-    // Compare with the performance of executing tasks sequentially
-    start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < 1000; i++) {
-        task();
-    }
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-    std::cout << "Sequential execution time: " << duration << " milliseconds" << std::endl;
-
-    return 0;
 }
